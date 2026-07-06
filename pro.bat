@@ -14,10 +14,13 @@ if %errorlevel%==0 (
 :: Sincroniza hooks y memoria desde GitHub
 git -C "%USERPROFILE%\.claude" pull --no-edit 2>nul
 
+:: Añade node al PATH por si no está
+set PATH=C:\Program Files\nodejs;%PATH%
+
 echo Aplicando settings Windows...
 copy /Y "%~dp0settings\settings.windows.json" "%USERPROFILE%\.claude\settings.json"
 
-:: Limpia variables del proxy dvk-claude por si están activas
+:: Limpia variables del proxy dvk-claude por si estan activas
 set ANTHROPIC_BASE_URL=
 set ANTHROPIC_API_KEY=
 set ANTHROPIC_AUTH_TOKEN=
