@@ -3,12 +3,31 @@
   "effortLevel": "medium",
   "permissions": {
     "allow": [
+      "Bash(git -C ~/.claude *)",
+      "Bash(git -C /home/jdeiv/.claude *)",
+      "Bash(cd ~/.claude && git *)",
+      "Bash(bash /home/jdeiv/.claude/hooks/gsd-autosync.sh)",
+      "Bash(git -C ~/dvk-claude *)",
+      "Bash(cd ~/dvk-claude && git *)",
+      "Bash(find / -name *)",
+      "Bash(ls /usr/*)",
+      "Bash(ls /opt/*)",
+      "Bash(ls /bin/*)",
       "Bash(git -C \"%USERPROFILE%\\.claude\" *)",
       "Bash(git -C C:\\Users\\deiv\\.claude *)",
       "Bash(cd \"%USERPROFILE%\\.claude\" && git *)",
       "Bash(bash \"C:\\Users\\deiv\\.claude\\hooks\\gsd-autosync.sh\")",
-      "Bash(node *)",
+      "Bash(git -C \"A:\\PROYECTOS\\dvk-claude\" status)",
+      "Bash(git -C \"A:\\PROYECTOS\\dvk-claude\" diff *)",
+      "Bash(git -C \"A:\\PROYECTOS\\dvk-claude\" log *)",
+      "Bash(git -C \"A:\\PROYECTOS\\dvk-claude\" show *)",
+      "Bash(cd \"A:\\PROYECTOS\\dvk-claude\" && git status)",
+      "Bash(cd \"A:\\PROYECTOS\\dvk-claude\" && git diff *)",
+      "Bash(cd \"A:\\PROYECTOS\\dvk-claude\" && git log *)",
+      "Bash(dir *)",
+      "Bash(where *)",
       "Bash(python *)",
+      "Bash(node *)",
       "Bash(python3 *)",
       "Bash(npx *)",
       "Bash(npm *)",
@@ -21,11 +40,9 @@
       "Bash(grep *)",
       "Bash(find *)",
       "Bash(find * -name *)",
-      "Bash(dir *)",
       "Bash(echo *)",
       "Bash(pwd)",
       "Bash(which *)",
-      "Bash(where *)",
       "Bash(wc *)",
       "Bash(ansible*)",
       "Bash(ansible-playbook *)",
@@ -36,9 +53,7 @@
       "Bash(git commit *)",
       "Bash(git push)",
       "Bash(git push *)",
-      "Bash(git pull *)",
-      "Bash(git -C \"A:\\PROYECTOS\\dvk-claude\" *)",
-      "Bash(cd \"A:\\PROYECTOS\\dvk-claude\" && git *)"
+      "Bash(git pull *)"
     ],
     "deny": [
       "Bash(git push *ansible-deployment*)",
@@ -53,6 +68,18 @@
       "Bash(git push *zazu*)",
       "Bash(git pull *zazu*)",
       "Bash(git commit *zazu*)",
+      "Bash(git push *dvk-claude*)",
+      "Bash(git pull *dvk-claude*)",
+      "Bash(git commit *dvk-claude*)",
+      "Bash(git push *devops-web*)",
+      "Bash(git pull *devops-web*)",
+      "Bash(git commit *devops-web*)",
+      "Bash(git push *pentest-lab*)",
+      "Bash(git pull *pentest-lab*)",
+      "Bash(git commit *pentest-lab*)",
+      "Bash(git push *deividk-ansible-packs-V2*)",
+      "Bash(git pull *deividk-ansible-packs-V2*)",
+      "Bash(git commit *deividk-ansible-packs-V2*)",
       "Bash(git -C *ansible* push)",
       "Bash(git -C *ansible* pull)",
       "Bash(git -C *ansible* commit *)",
@@ -62,6 +89,15 @@
       "Bash(git -C *zazu* push)",
       "Bash(git -C *zazu* pull)",
       "Bash(git -C *zazu* commit *)",
+      "Bash(git -C *dvk-claude* push)",
+      "Bash(git -C *dvk-claude* pull)",
+      "Bash(git -C *dvk-claude* commit *)",
+      "Bash(git -C *devops-web* push)",
+      "Bash(git -C *devops-web* pull)",
+      "Bash(git -C *devops-web* commit *)",
+      "Bash(git -C *pentest-lab* push)",
+      "Bash(git -C *pentest-lab* pull)",
+      "Bash(git -C *pentest-lab* commit *)",
       "Bash(cd *ansible* && git push)",
       "Bash(cd *ansible* && git pull)",
       "Bash(cd *ansible* && git commit *)",
@@ -70,7 +106,16 @@
       "Bash(cd *zabbix* && git commit *)",
       "Bash(cd *zazu* && git push)",
       "Bash(cd *zazu* && git pull)",
-      "Bash(cd *zazu* && git commit *)"
+      "Bash(cd *zazu* && git commit *)",
+      "Bash(cd *dvk-claude* && git push)",
+      "Bash(cd *dvk-claude* && git pull)",
+      "Bash(cd *dvk-claude* && git commit *)",
+      "Bash(cd *devops-web* && git push)",
+      "Bash(cd *devops-web* && git pull)",
+      "Bash(cd *devops-web* && git commit *)",
+      "Bash(cd *pentest-lab* && git push)",
+      "Bash(cd *pentest-lab* && git pull)",
+      "Bash(cd *pentest-lab* && git commit *)"
     ]
   },
   "hooks": {
@@ -80,7 +125,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "git -C \"%USERPROFILE%\\.claude\" pull --no-edit 2>&1 || true"
+            "command": "git -C \"$HOME/.claude\" pull --no-edit 2>&1 || true"
           }
         ]
       },
@@ -88,7 +133,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "\"C:\\Program Files\\nodejs\\node.exe\" \"C:\\Users\\deiv\\.claude\\hooks\\gsd-check-update.js\""
+            "command": "node \"$HOME/.claude/hooks/gsd-check-update.js\""
           }
         ]
       },
@@ -96,7 +141,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash \"C:\\Users\\deiv\\.claude\\hooks\\gsd-session-state.sh\""
+            "command": "bash \"$HOME/.claude/hooks/gsd-session-state.sh\""
           }
         ]
       }
@@ -107,7 +152,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash \"C:\\Users\\deiv\\.claude\\hooks\\gsd-autosync.sh\""
+            "command": "bash \"$HOME/.claude/hooks/gsd-autosync.sh\""
           }
         ]
       }
@@ -118,7 +163,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "\"C:\\Program Files\\nodejs\\node.exe\" \"C:\\Users\\deiv\\.claude\\hooks\\gsd-context-monitor.js\"",
+            "command": "node \"$HOME/.claude/hooks/gsd-context-monitor.js\"",
             "timeout": 10
           }
         ]
@@ -128,7 +173,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "\"C:\\Program Files\\nodejs\\node.exe\" \"C:\\Users\\deiv\\.claude\\hooks\\gsd-read-injection-scanner.js\"",
+            "command": "node \"$HOME/.claude/hooks/gsd-read-injection-scanner.js\"",
             "timeout": 5
           }
         ]
@@ -138,7 +183,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash \"C:\\Users\\deiv\\.claude\\hooks\\gsd-phase-boundary.sh\""
+            "command": "bash \"$HOME/.claude/hooks/gsd-phase-boundary.sh\"",
+            "timeout": 5
           }
         ]
       }
@@ -149,7 +195,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "\"C:\\Program Files\\nodejs\\node.exe\" \"C:\\Users\\deiv\\.claude\\hooks\\gsd-prompt-guard.js\"",
+            "command": "node \"$HOME/.claude/hooks/gsd-prompt-guard.js\"",
             "timeout": 5
           }
         ]
@@ -159,7 +205,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "\"C:\\Program Files\\nodejs\\node.exe\" \"C:\\Users\\deiv\\.claude\\hooks\\gsd-read-guard.js\"",
+            "command": "node \"$HOME/.claude/hooks/gsd-read-guard.js\"",
             "timeout": 5
           }
         ]
@@ -169,7 +215,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "\"C:\\Program Files\\nodejs\\node.exe\" \"C:\\Users\\deiv\\.claude\\hooks\\gsd-workflow-guard.js\"",
+            "command": "node \"$HOME/.claude/hooks/gsd-workflow-guard.js\"",
             "timeout": 5
           }
         ]
@@ -179,7 +225,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash \"C:\\Users\\deiv\\.claude\\hooks\\gsd-validate-commit.sh\"",
+            "command": "bash \"$HOME/.claude/hooks/gsd-validate-commit.sh\"",
             "timeout": 5
           }
         ]
@@ -188,16 +234,23 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "\"C:\\Program Files\\nodejs\\node.exe\" \"C:\\Users\\deiv\\.claude\\hooks\\gsd-statusline.js\""
+    "command": "node \"$HOME/.claude/hooks/gsd-statusline.js\""
   },
   "enabledPlugins": {
-    "superpowers@claude-plugins-official": true
+    "superpowers@claude-plugins-official": true,
+    "watch@claude-video": true
   },
   "extraKnownMarketplaces": {
     "anthropic-agent-skills": {
       "source": {
         "source": "github",
         "repo": "anthropics/skills"
+      }
+    },
+    "claude-video": {
+      "source": {
+        "source": "github",
+        "repo": "bradautomates/claude-video"
       }
     }
   },

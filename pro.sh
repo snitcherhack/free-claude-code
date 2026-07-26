@@ -1,9 +1,9 @@
 #!/bin/bash
-# pro.sh - Aplica settings Linux y lanza Claude Code con suscripción
+# pro.sh - Aplica settings y lanza Claude Code con suscripción
 SCRIPT_DIR="$(dirname "$0")"
 
-echo "Aplicando settings Linux..."
-cp "$SCRIPT_DIR/settings/settings.linux.json" "$HOME/.claude/settings.json"
+echo "Aplicando settings..."
+cp "$SCRIPT_DIR/settings/settings.json" "$HOME/.claude/settings.json"
 
 # Limpia variables del proxy dvk-claude por si están activas
 unset ANTHROPIC_BASE_URL

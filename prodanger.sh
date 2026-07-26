@@ -1,9 +1,9 @@
 #!/bin/bash
-# prodanger.sh - Aplica settings Linux y lanza Claude Code sin confirmaciones
+# prodanger.sh - Aplica settings y lanza Claude Code sin confirmaciones
 SCRIPT_DIR="$(dirname "$0")"
 
-echo "Aplicando settings Linux..."
-cp "$SCRIPT_DIR/settings/settings.linux.json" "$HOME/.claude/settings.json"
+echo "Aplicando settings..."
+cp "$SCRIPT_DIR/settings/settings.json" "$HOME/.claude/settings.json"
 
 unset ANTHROPIC_BASE_URL
 unset ANTHROPIC_API_KEY

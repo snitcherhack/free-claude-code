@@ -1,24 +1,14 @@
 @echo off
 title Claude Code Pro Dangerous Launcher
 
-findstr /C:"RUTA_NODE_WINDOWS" "%~dp0settings\settings.windows.json" >nul
-if %errorlevel%==0 (
-    echo.
-    echo [ERROR] settings\settings.windows.json todavia tiene el placeholder RUTA_NODE_WINDOWS sin sustituir.
-    echo Ejecuta "where node" en cmd, copia la ruta y sustituyela en ese archivo antes de continuar.
-    echo.
-    pause
-    exit /b 1
-)
-
 :: Sincroniza hooks y memoria desde GitHub
 git -C "%USERPROFILE%\.claude" pull --no-edit 2>nul
 
 :: Añade node al PATH por si no está
 set PATH=C:\Program Files\nodejs;%PATH%
 
-echo Aplicando settings Windows...
-copy /Y "%~dp0settings\settings.windows.json" "%USERPROFILE%\.claude\settings.json"
+echo Aplicando settings...
+copy /Y "%~dp0settings\settings.json" "%USERPROFILE%\.claude\settings.json"
 
 :: Limpia variables del proxy dvk-claude por si estan activas
 set ANTHROPIC_BASE_URL=
